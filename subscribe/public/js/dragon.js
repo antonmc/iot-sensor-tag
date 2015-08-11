@@ -1209,51 +1209,6 @@ SensorData.prototype.setReading = function (type, value) {
         break;
     case "accelerometer":
         this[type] = value;
-
-        //        console.log('x: ' + value.x);
-        //        console.log('y: ' + value.y);
-        //        console.log('z: ' + value.z);
-        //
-        //        // Lets get the deviations from our baseline
-        //        x_val = value.x;
-        //        y_val = value.y;
-        //        z_val = value.z;
-        //
-        //        // Work out the squares 
-        //        x2 = x_val * x_val;
-        //        y2 = y_val * y_val;
-        //        z2 = z_val * z_val;
-        //
-        //        //X Axis
-        //        result = Math.sqrt(y2 + z2);
-        //        result = x_val / result;
-        //        accel_angle_x = Math.atan(result);
-        //
-        //        //Y Axis
-        //        result = Math.sqrt(x2 + z2);
-        //        result = y_val / result;
-        //        accel_angle_y = Math.atan(result);
-        //
-        //        controls.rotateLeft(accel_angle_x);
-
-        //        console.log('accelerometer');
-
-
-        var SCALE = 4096.0;
-        //
-        //        x = (value[0] << 8) + value[1];
-        //        y = (value[2] << 8) + value[3];
-        //        z = (value[4] << 8) + value[5];
-
-        var point = {
-            x: value.x / SCALE,
-            y: value.y / SCALE,
-            z: value.z / SCALE
-        };
-        //        return new Point3D(x / SCALE, y / SCALE, z / SCALE);
-
-
-        console.log(point);
         break;
     case "gyroscope":
         this[type] = value;
