@@ -1132,19 +1132,13 @@ gyro.onmessage = function (e) {
 
 
 var click = multiplexer.channel('click');
-click.onopen = function () {
-    //    console.log("click open");
-};
+
+click.onopen = function () {};
+
 click.onmessage = function (e) {
     var data = jQuery.parseJSON(e.data);
-    if (data.d.left && !data.d.right) {
-        //  	      Reveal.left();
-
-        //        console.log('left click');
-    }
+    if (data.d.left && !data.d.right) {}
     if (data.d.right && !data.d.left) {
-        //  	      Reveal.right();
-        //        console.log('right click');
         handleMouseUp(data);
     }
 };
@@ -1154,9 +1148,6 @@ function connectOnClick() {
     var data = JSON.stringify({
         "deviceId": uuid
     });
-    //    air.send(data);
-    //    mag.send(data);
-    //    gyro.send(data);
     accel.send(data);
     click.send(data);
     $('#uuid').hide();
@@ -1212,7 +1203,6 @@ SensorData.prototype.setReading = function (type, value) {
         break;
     case "gyroscope":
         this[type] = value;
-
 
         if (value.x > 1) {
             controls.rotateLeft(-0.5);
